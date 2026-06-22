@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>关于世界杯 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #edf2f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e2b34;
+      padding: 2rem 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* hero 区 — 柔和问候 */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 20, 30, 0.04);
+      border: 1px solid #dde5ea;
+      text-align: center;
+    }
+
+    .hero-card h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0b1d28;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card h1 span {
+      display: inline-block;
+      background: #eef4f8;
+      padding: 0 0.4rem 0.1rem 0.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      color: #1b4d5e;
+    }
+
+    .hero-card p {
+      font-size: 1.2rem;
+      max-width: 640px;
+      margin: 0 auto 0.25rem auto;
+      color: #2f4553;
+    }
+
+    .hero-card .muted-note {
+      font-size: 0.9rem;
+      color: #68808f;
+      margin-top: 1.2rem;
+      border-top: 1px solid #e1e9ef;
+      padding-top: 1.2rem;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #d9e2e9;
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #17313e;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #7fa5b8;
+      padding-left: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1b3b4a;
+      margin: 1.8rem 0 0.5rem 0;
+    }
+
+    .card p, .card li {
+      color: #264654;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+
+    .card li {
+      padding: 0.35rem 0 0.35rem 1.5rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #7fa5b8;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    /* 优势区 —— 三列网格 */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+      margin: 1rem 0 0.5rem 0;
+    }
+
+    .advantage-item {
+      background: #f7fafc;
+      padding: 1.6rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid #dce7ee;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .advantage-item:hover {
+      box-shadow: 0 6px 14px rgba(0, 30, 40, 0.04);
+    }
+
+    .advantage-item .icon-placeholder {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.7;
+    }
+
+    .advantage-item h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: #1c3543;
+    }
+
+    .advantage-item p {
+      font-size: 0.95rem;
+      color: #31505f;
+    }
+
+    /* 说明区 — 场景感 */
+    .scene-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.5rem 0 0.2rem 0;
+    }
+
+    .scene-block {
+      flex: 1 1 200px;
+      background: #f6fafd;
+      padding: 1.6rem 1.2rem;
+      border-radius: 20px;
+      border: 1px solid #d6e1e9;
+    }
+
+    .scene-block h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #1b3c4b;
+      margin-bottom: 0.3rem;
+    }
+
+    .scene-block p {
+      font-size: 0.95rem;
+      color: #385b6b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e1eaf0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #17313e;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      margin: 0 0 0.2rem 0;
+      color: #2e4b5b;
+      font-size: 0.98rem;
+    }
+
+    /* 底部 */
+    .footer-links {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1.8rem 1rem 0.8rem;
+      border-top: 1px solid #d1dce5;
+      color: #3b5e70;
+    }
+
+    .footer-links a {
+      color: #1b4d5e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: #7fa5b8;
+    }
+
+    .footer-links p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-links .small-note {
+      font-size: 0.8rem;
+      color: #688a9c;
+      margin-top: 1rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.9rem; }
+      .hero-card { padding: 2rem 1.2rem; }
+      .hero-card h1 { font-size: 2.1rem; }
+      .card { padding: 1.8rem 1.2rem; }
+      .grid-3 { gap: 1rem; }
+      .scene-flex { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- hero 区：站点介绍与可靠说明 -->
+    <div class="hero-card">
+      <h1>关于 <span>世界杯</span> · 信息页</h1>
+      <p>这里是 pro-sjb2026.com 的一个介绍窗口。我们围绕世界杯相关话题，整理一份平实、可参考的站点说明，帮你快速了解这里的风格与内容方向。</p>
+      <div class="muted-note">一份生活化的站点笔记 · 没有夸张，只有真实</div>
+    </div>
+
+    <!-- 优势区：可信与实用 -->
+    <div class="card">
+      <h2>为什么留意这里</h2>
+      <div class="grid-3">
+        <div class="advantage-item">
+          <div class="icon-placeholder">⚙️</div>
+          <h4>内容克制</h4>
+          <p>不渲染情绪，不制造焦虑。每篇内容都经过基本事实核查，保持平实语调。</p>
+        </div>
+        <div class="advantage-item">
+          <div class="icon-placeholder">📁</div>
+          <h4>长期维护</h4>
+          <p>站点持续更新，虽不追求日更，但每则信息都会留存版本，方便回溯。</p>
+        </div>
+        <div class="advantage-item">
+          <div class="icon-placeholder">🔗</div>
+          <h4>引用透明</h4>
+          <p>引用的数据或观点会尽量标注来源，方便你自行验证。</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.98rem; color: #31505f;">如果你对 <a href="https://pro-sjb2026.com" style="color: #1b4d5e; text-decoration: underline; text-underline-offset: 2px;">世界杯</a> 相关话题感兴趣，可以多翻翻站内不同时期的文章，或许能发现一些意外的视角。</p>
+    </div>
+
+    <!-- 说明区：站点与场景 -->
+    <div class="card">
+      <h2>适合哪些场景</h2>
+      <div class="scene-flex">
+        <div class="scene-block">
+          <h4>日常浏览</h4>
+          <p>茶余饭后，随手翻阅几段关于世界杯的讨论，不用带太多负担。</p>
+        </div>
+        <div class="scene-block">
+          <h4>快速查证</h4>
+          <p>偶尔想确认某个赛事背景或趋势，站点提供相对简洁的条目式笔记。</p>
+        </div>
+        <div class="scene-block">
+          <h4>轻松分享</h4>
+          <p>把站内有意思的片段转发给同好，一起聊聊关于世界杯的回忆。</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #385b6b;">无论你是老球迷还是刚接触世界杯的新朋友，这里都保留着一种朴素的信息风格。</p>
+    </div>
+
+    <!-- FAQ 摘要（非完整，仅展示几条常见疑问语调） -->
+    <div class="card">
+      <h2>FAQ 摘要 · 几个你可能关心的事</h2>
+      <div class="faq-item">
+        <strong>这个网站是官方组织吗？</strong>
+        <p>不是。pro-sjb2026.com 是一个个人或小团队运营的信息整理站点，并非国际足联或任何官方机构。</p>
+      </div>
+      <div class="faq-item">
+        <strong>内容会定期更新吗？</strong>
+        <p>没有严格的时间表，但遇到有意义的节点或素材会更新。你可以把站点当作一个安静的档案角。</p>
+      </div>
+      <div class="faq-item">
+        <strong>我可以转载或引用站内内容吗？</strong>
+        <p>非商业引用通常没问题，标明出处即可。如有大量转载需求，建议先通过站内方式沟通。</p>
+      </div>
+      <div class="faq-item">
+        <strong>为什么叫 pro-sjb2026？</strong>
+        <p>名字来源于一个内部项目代号，与世界杯年份相关，但站点本身更侧重记录和分享，不涉及博彩或商业预测。</p>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #3b5e70;">更多疑问欢迎在站内浏览时自行探索，或参考具体文章下的注释。</p>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="footer-links">
+      <p>📌 直接前往 <a href="https://pro-sjb2026.com">世界杯</a> 主页，浏览完整内容。</p>
+      <p style="margin-top: 0.8rem;">本站所有信息仅供参考，不构成任何建议或承诺。</p>
+      <p class="small-note">© 介绍页 · 祝浏览愉快</p>
+    </div>
+  </div>
+</body>
+</html>
